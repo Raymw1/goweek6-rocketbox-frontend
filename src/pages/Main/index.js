@@ -12,7 +12,7 @@ export default class index extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await api.post("/boxes", { title: this.state.newBox });
-    console.log(data);
+    this.props.history.push(`/box/${data._id}`);
   };
 
   handleInputChange = (e) => {
