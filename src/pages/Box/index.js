@@ -21,11 +21,12 @@ export default class index extends Component {
   }
 
   subscribeToNewFiles = () => {
-    const { box } = this.state;
     const io = socket(process.env.REACT_APP_API_URL);
-    io.emit("connectRoom", box._id);
+    io.emit("connectRoom", this.state.box._id);
     io.on("file", (data) => {
-      this.setState({ box: { ...box, files: [data, ...box.files] } });
+      this.setState({
+        box: { ...this.state.box, files: [data, ...this.state.box.files] },
+      });
     });
   };
 
