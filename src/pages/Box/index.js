@@ -5,10 +5,9 @@ import pt from "date-fns/locale/pt";
 import Dropzone from "react-dropzone";
 import socket from "socket.io-client";
 
-import "./styles.css";
-
 import { MdInsertDriveFile } from "react-icons/md";
 import logo from "../../assets/logo.svg";
+import { Container } from "./styles";
 
 export default class index extends Component {
   state = { box: {} };
@@ -42,7 +41,7 @@ export default class index extends Component {
   render() {
     const { box } = this.state;
     return (
-      <div id="box-container">
+      <Container>
         <header>
           <img src={logo} alt="RocketBox" />
           <h1>{box.title}</h1>
@@ -76,7 +75,7 @@ export default class index extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </Container>
     );
   }
 }

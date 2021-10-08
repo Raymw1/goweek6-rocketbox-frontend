@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import api from "../../services/api";
 
-import "./styles.css";
+import { Container, SubmitButton } from "./styles";
 import logo from "../../assets/logo.svg";
 
 export default class index extends Component {
@@ -21,7 +21,7 @@ export default class index extends Component {
 
   render() {
     return (
-      <div id="main-container">
+      <Container>
         <form onSubmit={this.handleSubmit}>
           <img src={logo} alt="RocketBox" />
           <input
@@ -30,9 +30,11 @@ export default class index extends Component {
             value={this.state.newBox}
             onChange={this.handleInputChange}
           />
-          <button type="submit">Create</button>
+          <SubmitButton color="#7159c1" type="submit">
+            Create
+          </SubmitButton>
         </form>
-      </div>
+      </Container>
     );
   }
 }
